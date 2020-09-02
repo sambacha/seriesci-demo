@@ -5,17 +5,12 @@ set -o pipefail
 set -o nounset
 
 curl \
-	--verbose \
-	--header "Authorization: Token ${TOKEN}" \
-	--header "Content-Type: application/json" \
-	--data "{\"value\":2.5,\"sha\":\"${CIRCLE_SHA1}\"}" \
-	"https://seriesci.com/api/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/deps/values"
-
-curl \
-	--verbose \
-	--header "Authorization: Token ${TOKEN}" \
-	--header "Content-Type: application/json" \
-	--data "{\"value\":90,\"sha\":\"${CIRCLE_SHA1}\"}" \
-	"https://seriesci.com/api/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/loc/values"
+  --header "Authorization: Token 71bd4861-73b4-45fc-b370-bf39c86a5b4d" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"value\":\"42 %\",
+    \"sha\":\"${TRAVIS_COMMIT}\"
+  }" \
+  https://seriesci.com/api/sambacha/seriesci-demo/:series/one
 
 exit 0
